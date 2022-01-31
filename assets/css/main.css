@@ -11,6 +11,10 @@ body {
     overflow-x: hidden;
     
 }
+#codeSnippet{
+    margin-left: 5rem;
+}
+
 .codeText{
     font-family: 'Sacramento', cursive;
     font-size: 1.5rem;
@@ -33,13 +37,13 @@ body {
 }
 #p1{
     padding-top: 29.5%;
-    padding-left: 26%;
+    padding-left: 18%;
     position: absolute;
     transform: translate(-0%, 0%);
 }
 #p1close{
     padding-top: 34%;
-    padding-left: 26%;
+    padding-left: 18%;
     position: absolute;
     transform: translate(-0%, -0%);
 }
@@ -47,7 +51,9 @@ body {
 #Introduction {
     font-family: Arial;
     font-size: 2rem;
-    color: rgba(95, 90, 90, 0.377);
+    color: rgba(131, 130, 130, 0.377);
+    text-shadow: 0.1rem 0.1rem #ffffff;
+    
 }
 
  div.unselectable{
@@ -61,10 +67,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute; 
-    
-    
-    
-    
     letter-spacing: small;
 }
 /* Homepage introduction letter coloring */
@@ -88,3 +90,57 @@ span{
     color: rgb(0, 200, 226);
     animation: rotate 0.7s;
 }
+
+/* Navigation bar */
+#sideNav a:hover{
+    color: aqua;
+}
+.sidenavClass a{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(131, 131, 131);
+    text-decoration: none;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+}
+#about{
+    border-top-style: solid;
+    border-width: 0.01rem;
+    border-color: rgba(255, 255, 255, 0.11);
+}
+#projects{
+    border-top-style: solid;
+    border-width: 0.01rem;
+    border-color: rgba(255, 255, 255, 0.11);
+}
+#skills{
+    border-top-style: solid;
+    border-width: 0.01rem;
+    border-bottom-style: solid;
+    border-color: rgba(255, 255, 255, 0.11);
+}
+.sidenavClass {
+  height: 100%;
+  width: 9rem;
+  position: fixed;
+  text-align: center;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #080808;
+  }
+  #insideNav{
+      padding-top: 25rem;
+      
+  }
+  #main{
+      padding-left: 4rem;
+  }
