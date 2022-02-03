@@ -66,7 +66,8 @@ span{
     color: rgb(0, 200, 226);
     animation: rotate 0.7s;
 }
-/* Navigation bar */
+
+/* NAVIGATION BAR */
 @media screen and (max-width: 800px) {
     .sidenavClass{
         display: none;
@@ -124,6 +125,7 @@ span{
     padding-left: 3vw;
 }
 
+/* ABOUT PAGE */
 .aboutPage{
     background-image: url("../images/space2.jpg");
     background-position: center center;
@@ -138,7 +140,7 @@ span{
     text-align: left;
     margin-top: 5vw;
     margin-left: 8vw;
-    margin-right: 55vw;
+    margin-right: 50vw;
     font-family: Arial;
     text-shadow: 0.1vw 0.1vw rgba(131, 130, 130, 0.315);
     
@@ -148,5 +150,30 @@ span{
     text-shadow: 0.1vw 0.1vw #4b7bff;
     text-align: left;
     margin-left: 1vw;
-    
+}
+#portraitPhoto{
+    margin-left: 45vw;
+    margin-top: -32vw;
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-style: solid;
+    border-color: #4b7bff;
+}
+
+/* PROJECTS PAGE */
+.projectsBg{
+    background-image: url("../images/space4.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 52.1vw;
+    margin-top: 0.4vw;
+}
+.projectsPage h2{
+    margin-left: 9vw;
+    font-size: 3vw;
+    text-shadow: 0.1vw 0.1vw #4b7bff;
+    margin-top: -45vw;
 }
