@@ -15,7 +15,6 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 52.5vw;
-   
 }
 
 
@@ -176,4 +175,64 @@ span{
     font-size: 3vw;
     text-shadow: 0.1vw 0.1vw #4b7bff;
     margin-top: -45vw;
+}
+#projectsList li{
+    list-style: none;
+    margin-left: 10vw;
+    background-color: #1d1d1d;
+    border-style: solid;
+    border-radius: 10%;
+    float:inline-start;
+    text-align: center;
+    margin-top: 3vw;
+    padding: 1vw;
+    height: 14vw;
+    width: 16vw;
+}
+
+#projectsList a{
+    font-size: 1.2vw;
+    font-family: Arial;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0.1vw 0.1vw rgba(131, 130, 130, 0.315)
+}
+#projectsList a:hover{
+    color: turquoise;
+}
+
+/* SKILLS PAGE */
+.skillsBg{
+    background-image: url("../images/space8.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 52.1vw;
+    margin-top: 42.5vw;
+}
+.skillsPage h2{
+    margin-left: 9vw;
+    font-size: 3vw;
+    text-shadow: 0.1vw 0.1vw #4b7bff;
+    margin-top: -45vw;
+}
+#skillsInfo dl{
+    list-style: none;
+    margin-left: 9vw;
+    font-size: 1.5vw;
+    font-family: Arial;
+    color: #fff;
+    text-shadow: 0.1vw 0.1vw rgba(131, 130, 130, 0.315);
+    display: flex;
+}
+#programmingSkills{
+    margin-right: 20vw;
+    margin-left: 5vw;
+}
+#frameworkSkills{
+    margin-right: 20vw;
+}
+#skillsInfo dd{
+    margin-top: 1.5vw;
 }
