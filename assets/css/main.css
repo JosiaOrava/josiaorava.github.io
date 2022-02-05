@@ -1,11 +1,16 @@
 /* MADE BY: Josia Orava */
-
+html{
+    height: 100%;
+    overflow: hidden;
+}
 body { 
     line-height: 1;
     font-family: "Open Sans",sans-serif;
     color: #fff;   
     background-color: #1d1d1d;
     margin: 0; 
+    overflow: auto;
+    height: 100%;
 }
 .parallax{
     background-color: #1d1d1d;
@@ -124,6 +129,7 @@ span{
     padding-left: 3vw;
 }
 
+
 /* ABOUT PAGE */
 .aboutPage{
     background-image: url("../images/space2.jpg");
@@ -235,4 +241,15 @@ span{
 }
 #skillsInfo dd{
     margin-top: 1.5vw;
+}
+
+.scrollContainer{
+    scroll-snap-type: y;
+    scroll-snap-type: mandatory;
+    overflow: scroll;
+    height: 100%;
+    overflow-x: hidden;
+}
+.scrollSnapArea{
+    scroll-snap-align: start;
 }
