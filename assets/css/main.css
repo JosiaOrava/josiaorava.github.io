@@ -11,6 +11,7 @@ body {
     margin: 0; 
     overflow: auto;
     height: 100%;
+    overscroll-behavior: none;
 }
 .parallax{
     background-color: #1d1d1d;
@@ -246,7 +247,6 @@ span{
 .scrollContainer{
     scroll-snap-type: y;
     scroll-snap-type: mandatory;
-    overflow: scroll;
     height: 100%;
     overflow-x: hidden;
 }
