@@ -1,10 +1,10 @@
 var generateBtn = document.getElementById("newArrayBtn");
 var sortBtn = document.getElementById("sortBtn");
-const sortingArray = [];
+sortingArray = [];
 generateBtn.onclick = function(){
     newArray();
 }
-sortBtn.onclick = function(){
+sortBtn.onclick = function(array){
     var sortedArray = quickSort(sortingArray, 0, sortingArray.length -1);
     removeElementsByClass("arrChildNew");
     for(i in sortedArray){
@@ -18,14 +18,14 @@ sortBtn.onclick = function(){
 }
 function newArray(){
     
-    if(document.getElementById("arrChild").hasChildNodes()){    
-        removeElementsByClass("arrChildNew");
-    }
+    removeElementsByClass("arrChildNew");
+    sortingArray = [];
     
-    for(i=0; i<115; i++){
-        sortingArray.push(getRandomInt(5, 100));
+    for(i=0; i<100; i++){
+        sortingArray.push(getRandomInt(5, 150));
         console.log(sortingArray[i]);
     }
+    
     //const map = sortingArray.map(x => x);
     //console.log(map);
     for(i in sortingArray){
@@ -36,10 +36,10 @@ function newArray(){
         y.innerHTML = sortingArray[i];
         document.getElementById("arrChild").appendChild(y);
     }
-    
+
 }
+
 function removeElementsByClass(className){
-    
     const elements = document.getElementsByClassName(className);
     while(elements.length > 0){
         elements[0].parentNode.removeChild(elements[0]);
