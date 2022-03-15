@@ -21,7 +21,7 @@ function newArray(){
     removeElementsByClass("arrChildNew");
     sortingArray = [];
     
-    for(i=0; i<100; i++){
+    for(i=0; i<300; i++){
         sortingArray.push(getRandomInt(5, 150));
         console.log(sortingArray[i]);
     }

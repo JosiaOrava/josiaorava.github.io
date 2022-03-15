@@ -13,6 +13,7 @@ body {
     text-align: center;
     z-index: 1;
     height: 3.5vw;
+    min-height: 70px;
 }
 #insideNav {
     padding-top: 0.5vw;
@@ -34,21 +35,14 @@ body {
     box-shadow: none;
 }
 .arrContainer{
-    position: absolute;
+    position: fixed;
     top: 2vw;
+    
+}
 
-}
-#arrayDiv{
-    font-size: small;
-    color: red;
-    width: 2px;
-    display: inline-block;
-    margin: 0 1px;
-    background-color: blue;
-}
 #arrChild{
-    width: 100vw;
     height: 1vw;
+    width: 4000px;
 }
 
 .arrChildNew{
@@ -57,4 +51,6 @@ body {
     padding: 1px;
     font-size: 1vh;
     border: solid 1px black;
+    width: 2px;
+    max-width: 2px;
 }
