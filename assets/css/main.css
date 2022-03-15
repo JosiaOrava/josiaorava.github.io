@@ -2,6 +2,7 @@
 html{
     height: 100%;
     overflow: hidden;
+    position: fixed;
 }
 body { 
     line-height: 1;
@@ -11,7 +12,7 @@ body {
     margin: 0; 
     overflow: auto;
     height: 100%;
-    overscroll-behavior: none;
+    overscroll-behavior-y: none;
 }
 .parallax{
     background-color: #1d1d1d;
@@ -159,12 +160,10 @@ span{
 }
 #portraitPhoto{
     margin-left: 45vw;
-    margin-top: -32vw;
+    margin-top: -37vw;
     position: relative;
     width: 100%;
     height: auto;
-    border-style: solid;
-    border-color: #4b7bff;
 }
 
 /* PROJECTS PAGE */
@@ -182,14 +181,16 @@ span{
     font-size: 3vw;
     text-shadow: 0.1vw 0.1vw #4b7bff;
     margin-top: -45vw;
+    margin-bottom: 0;
 }
+
 #projectsList li{
     list-style: none;
     margin-left: 10vw;
     background-color: #1d1d1d;
     border-style: solid;
     border-radius: 10%;
-    float:inline-start;
+    float:left;
     text-align: center;
     margin-top: 3vw;
     padding: 1vw;
@@ -245,9 +246,10 @@ span{
 }
 
 .scrollContainer{
-    scroll-snap-type: y;
-    scroll-snap-type: mandatory;
-    height: 100%;
+    scroll-snap-type: y mandatory;
+    scroll-snap-type: proximity;
+    max-height: 100vh;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 .scrollSnapArea{
