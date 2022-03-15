@@ -36,12 +36,12 @@ body {
 }
 .arrContainer{
     position: fixed;
-    top: 2vw;
+    top: 50px;
     
 }
 
 #arrChild{
-    height: 1vw;
+    height: 2vw;
     width: 4000px;
 }
 
