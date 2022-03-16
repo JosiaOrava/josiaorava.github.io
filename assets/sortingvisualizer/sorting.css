@@ -54,3 +54,11 @@ body {
     width: 2px;
     max-width: 2px;
 }
+a{
+    text-decoration: none;
+    color: #fff;
+}
+a:hover{
+    color: aqua;
+    cursor:default;
+}
