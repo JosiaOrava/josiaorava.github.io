@@ -5,9 +5,7 @@ var home = document.getElementById("homePage");
 sortingArray = [];
 colorVal = [];
 
-home.onclick() = function(){
-    location.href = "/index.html";
-}
+
 cancelSort.onclick = function(){
     location.reload();
 }
