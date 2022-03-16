@@ -1,42 +1,31 @@
 var generateBtn = document.getElementById("newArrayBtn");
 var sortBtn = document.getElementById("sortBtn");
+var cancelSort = document.getElementById("cancelSort");
 sortingArray = [];
+colorVal = [];
+
+cancelSort.onclick = function(){
+    location.reload();
+}
+
 generateBtn.onclick = function(){
     newArray();
 }
+
 sortBtn.onclick = function(array){
-    var sortedArray = quickSort(sortingArray, 0, sortingArray.length -1);
-    removeElementsByClass("arrChildNew");
-    for(i in sortedArray){
-        var y = document.createElement("div");
-        y.className = "arrChildNew"
-        var calcHeight = sortingArray[i] * 5 + "px";
-        y.style.height = calcHeight;
-        y.innerHTML = sortingArray[i];
-        document.getElementById("arrChild").appendChild(y);
-    }
+    quickSort(sortingArray, 0, sortingArray.length -1);
 }
+
 function newArray(){
-    
     removeElementsByClass("arrChildNew");
     sortingArray = [];
+    colorVal = [];
     
     for(i=0; i<300; i++){
         sortingArray.push(getRandomInt(5, 150));
-        console.log(sortingArray[i]);
+        colorVal.push(-1);
     }
-    
-    //const map = sortingArray.map(x => x);
-    //console.log(map);
-    for(i in sortingArray){
-        var y = document.createElement("div");
-        y.className = "arrChildNew"
-        var calcHeight = sortingArray[i] * 5 + "px";
-        y.style.height = calcHeight;
-        y.innerHTML = sortingArray[i];
-        document.getElementById("arrChild").appendChild(y);
-    }
-
+    drawArray();
 }
 
 function removeElementsByClass(className){
@@ -46,48 +35,85 @@ function removeElementsByClass(className){
     }
 }
 
-function swap(items, leftIndex, rightIndex){
-    var temp = items[leftIndex];
-    items[leftIndex] = items[rightIndex];
-    items[rightIndex] = temp;
+function drawArray(){
+    removeElementsByClass("arrChildNew");
+    for(i in sortingArray){
+        var y = document.createElement("div");
+        y.className = "arrChildNew"
+        var calcHeight = sortingArray[i] * 5 + "px";
+        y.style.height = calcHeight;
+        y.innerHTML = sortingArray[i];
+        document.getElementById("arrChild").appendChild(y);
+        if(colorVal[i] == 0){
+            y.style.backgroundColor = "green";
+        } else if(colorVal[i] == 1){
+            y.style.backgroundColor = "red";
+        }
+    }
 }
-function partition(items, left, right) {
-    var pivot   = items[Math.floor((right + left) / 2)], //middle element
-        i       = left, //left pointer
-        j       = right; //right pointer
+
+async function swap(array, leftIndex, rightIndex){
+    var temp = array[leftIndex];
+
+    array[leftIndex] = array[rightIndex];
+    array[rightIndex] = temp;
+    
+    await sleep(5);
+    drawArray();
+}
+
+async function partition(array, left, right) {
+    var pivot   = array[Math.floor((right + left) / 2)], 
+    i = left, 
+    j = right; 
+    colorVal[i] = 0;
+    colorVal[j] = 1;
     while (i <= j) {
-        while (items[i] < pivot) {
+        while (array[i] < pivot) {
             i++;
         }
-        while (items[j] > pivot) {
+        while (array[j] > pivot) {
             j--;
         }
         if (i <= j) {
-            swap(items, i, j); //sawpping two elements
+            await swap(array, i, j);
+
+            colorVal[i] = -1;
+            colorVal[j] = -1;
+
             i++;
             j--;
+
+            colorVal[i] = 0;
+            colorVal[j] = 1;
         }
     }
+    colorVal[i] = -1;
+    colorVal[j] = -1;
+    
     return i;
 }
 
-function quickSort(items, left, right) {
+async function quickSort(array, left, right) {
     var index;
-    if (items.length > 1) {
-        index = partition(items, left, right); //index returned from partition
-        if (left < index - 1) { //more elements on the left side of the pivot
-            quickSort(items, left, index - 1);
+    if (array.length > 1) {
+        index = await partition(array, left, right); 
+        if (left < index - 1) {
+            await quickSort(array, left, index - 1);
         }
-        if (index < right) { //more elements on the right side of the pivot
-            quickSort(items, index, right);
+        if (index < right) {
+            await quickSort(array, index, right);
         }
     }
-    return items;
+    drawArray();
+    return array;
 }
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-// Added Math.floor to round numbers to int
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
-  }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
   
