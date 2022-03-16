@@ -72,9 +72,11 @@ async function partition(array, left, right) {
     colorVal[j] = 1;
     while (i <= j) {
         while (array[i] < pivot) {
+            colorVal[i] = 0;
             i++;
         }
         while (array[j] > pivot) {
+            colorVal[j] = 1;
             j--;
         }
         if (i <= j) {
@@ -85,7 +87,6 @@ async function partition(array, left, right) {
 
             i++;
             j--;
-
             colorVal[i] = 0;
             colorVal[j] = 1;
         }
