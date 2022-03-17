@@ -50,6 +50,8 @@ function drawArray(){
             y.style.backgroundColor = "green";
         } else if(colorVal[i] == 1){
             y.style.backgroundColor = "red";
+        } else if(colorVal[i] == 3){
+            y.style.backgroundColor = "purple";
         }
     }
 }
@@ -59,8 +61,9 @@ async function swap(array, leftIndex, rightIndex){
 
     array[leftIndex] = array[rightIndex];
     array[rightIndex] = temp;
-    
-    await sleep(5);
+    colorVal[leftIndex] = 0;
+    colorVal[rightIndex] = 1;
+    await sleep(10);
     drawArray();
 }
 
@@ -68,32 +71,22 @@ async function partition(array, left, right) {
     var pivot   = array[Math.floor((right + left) / 2)], 
     i = left, 
     j = right; 
-    colorVal[i] = 0;
-    colorVal[j] = 1;
     while (i <= j) {
         while (array[i] < pivot) {
-            colorVal[i] = 0;
             i++;
         }
         while (array[j] > pivot) {
-            colorVal[j] = 1;
             j--;
         }
         if (i <= j) {
             await swap(array, i, j);
-
             colorVal[i] = -1;
             colorVal[j] = -1;
 
             i++;
             j--;
-            colorVal[i] = 0;
-            colorVal[j] = 1;
         }
     }
-    colorVal[i] = -1;
-    colorVal[j] = -1;
-    
     return i;
 }
 
@@ -105,8 +98,11 @@ async function quickSort(array, left, right) {
             await quickSort(array, left, index - 1);
         }
         if (index < right) {
-            await quickSort(array, index, right);
+            await quickSort(array, index, right);   
         }
+    }
+    for(i=0; i<=right; i++){
+        colorVal[i] = 3;
     }
     drawArray();
     return array;
